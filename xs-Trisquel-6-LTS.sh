@@ -1,5 +1,5 @@
 
-##[ Trisquel 7.0 LTS Desktop ]##################################################
+##[ Trisquel 6 LTS Desktop ]####################################################
 #
 # REV 2.0
 # 20 JAN 2015, JK Benedict
@@ -15,9 +15,9 @@
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Trisquel 7.0 LTS Desktop")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Trisquel 6 LTS Desktop")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Trisquel 7.0 LTS Desktop: 32 or 64-bit.  The LiveCD/Install Media can be downloaded from http://trisquel.info/" \
+    name-description="COMMUNITY TEMPLATE for Trisquel 6 LTS Desktop: 32 or 64-bit.  The LiveCD/Install Media can be downloaded from http://trisquel.info/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
