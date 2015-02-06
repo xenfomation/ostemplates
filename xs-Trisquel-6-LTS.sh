@@ -26,7 +26,7 @@ xe template-param-set uuid=$dstUUID \
     other-config:install-distro=debianlike \
     other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:install-arch=x86_64 \
-	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
+	other-config:disks='<provision><disk device="0" size="6442450944" sr="" bootable="true" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
 	platform:videoram=16 \
