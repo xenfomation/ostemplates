@@ -4,7 +4,8 @@
 # 1 FEB 2015, JK Benedict
 # xenfomation.servercide.com | @xenfomation
 #
-# TESTED ON		: XenServer 6.5
+# INTENDED FOR	: XenServer 6.5
+# TESTED ON		: XenServer 6.2, 6.5
 # ARCHITECTURE	: 32/64 BITS
 # XENTOOLS		: Tools install without manual intervention
 #

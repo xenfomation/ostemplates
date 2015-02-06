@@ -1,8 +1,7 @@
 
-##[ Linux Mint 17.1 (MATE Spin) ]###############################################
+##[ Linux Mint LMDE CINNAMON (Debian Edition) ]#################################
 #
-# REV 2.0
-# 30 NOV 2014, JK Benedict
+# 01 DEC 2014, JK Benedict
 # xenfomation.servercide.com | @xenfomation
 # 
 # XENSERVER AND TEMPLATE INFORMATION:
@@ -10,21 +9,20 @@
 # INTENDED FOR	: XenServer 6.5
 # TESTED ON		: XenServer 6.2, 6.5
 # ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Must be manually installed (dpkg -i xe-guest*deb)
+# XENTOOLS		: Must be manually installed (dpkg -i xe*amd64.deb or dpkg -i xe*i386.deb)
 #
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint 17.1 (MATE Spin)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint LMDE CINNAMON (Debian Edition)")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Linux Mint 17.1 (MATE Spin): 32 or 64-bit. MINIMUM Guest VM requirements are 512MB of RAM and 10GB of available disk space. OPTIMUM Guest VM requirements are 1024MB of RAM and 20GB of available disk space. The installer media can be downloaded from http://blog.linuxmint.com/?p=2713" \
+	name-description="COMMUNITY TEMPLATE for Linux Mint LMDE CINNAMON (Debian Edition): rolling-update release (32 or 64-bit).  MINIMUM Guest VM requirements are 512MB of RAM and 10GB of available disk space.  OPTIMUM Guest VM requirements are 1024MB of RAM and 20GB of available disk space.  The installer media can be downloaded from http://www.linuxmint.com/release.php?id=14" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \
 	other-config:linux_template=true \
-	other-config:debian-release=trusty \
 	other-config:install-distro=debianlike \
 	other-config:install-arch=amd64 \
 	other-config:default_template=true \

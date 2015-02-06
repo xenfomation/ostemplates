@@ -1,35 +1,31 @@
 
-##[ Linux Mint 17.1 (MATE Spin) ]###############################################
+##[ Bodhi Linux 3.0 ]###########################################################
 #
-# REV 2.0
-# 30 NOV 2014, JK Benedict
+# 15 SEP 2014, JK Benedict
 # xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
 #
 # INTENDED FOR	: XenServer 6.5
 # TESTED ON		: XenServer 6.2, 6.5
 # ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Must be manually installed (dpkg -i xe-guest*deb)
+# XENTOOLS		: Tools install without manual intervention
 #
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint 17.1 (MATE Spin)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Bodhi Linux 3.0")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Linux Mint 17.1 (MATE Spin): 32 or 64-bit. MINIMUM Guest VM requirements are 512MB of RAM and 10GB of available disk space. OPTIMUM Guest VM requirements are 1024MB of RAM and 20GB of available disk space. The installer media can be downloaded from http://blog.linuxmint.com/?p=2713" \
+	name-description="COMMUNITY TEMPLATE for Bodhi Linux 3.0 (32 or 64-bit).  The installer media can be downloaded from http://www.bodhilinux.com/" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \
 	other-config:linux_template=true \
-	other-config:debian-release=trusty \
 	other-config:install-distro=debianlike \
-	other-config:install-arch=amd64 \
+	other-config:install-arch=x86_64 \
 	other-config:default_template=true \
 	other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
+	other-config:disks='<provision><disk device="0" size="5368709120" sr="" bootable="true" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
 	platform:videoram=16 \
