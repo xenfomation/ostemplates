@@ -1,21 +1,7 @@
 
 ##[ HandyLinux 1.8 ]############################################################
-#
-# REV 1.0
-# 20 JAN 2015, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-#
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR  : XenServer 6.5
-# TESTED ON: 6.5
-# ARCHITECTURE  : 32 BITS
-# XENTOOLS: Tools install without manual intervention
-#
-################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="HandyLinux 1.8")
 
 xe template-param-set uuid=$dstUUID \
