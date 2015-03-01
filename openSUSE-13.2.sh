@@ -1,21 +1,22 @@
 
-##[ Ubuntu 14.10 (Utopic Unicorn) Desktop ]####################################
+##[ openSUSE 13.2 ]############################################################
 # 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Ubuntu 14.10 (Utopic Unicorn) Desktop")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="openSUSE 13.2")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: Ubuntu 14.10 (Utopic Unicorn) Desktop from http://www.ubuntu.com/" \
-	memory-static-max=1073741824 \
-	memory-dynamic-max=1073741824 \
-	memory-dynamic-min=1073741824 \
+	name-description="COMMUNITY TEMPLATE: openSUSE 13.2 from https://www.opensuse.org/en/" \
+	memory-static-max=2147483648 \
+	memory-dynamic-max=2147483648 \
+	memory-dynamic-min=2147483648 \
 	other-config:linux_template=true \
 	other-config:default_template=true \
-	other-config:install-arch=amd64 \
+	other-config:install-arch=x86_64 \
 	other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
+	other-config:install-distro=pygrub \
 	platform:apic=true \
 	platform:acpi=1 \
 	platform:pae=true \

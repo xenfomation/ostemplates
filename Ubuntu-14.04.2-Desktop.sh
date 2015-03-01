@@ -1,13 +1,13 @@
 
-##[ Ubuntu 14.04.2 Desktop ]###################################################
+##[ Ubuntu GNOME 14.04.2 Desktop ]#############################################
 # 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Ubuntu 14.04.2 Desktop")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="UUbuntu GNOME 14.04.2 Desktop")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: Ubuntu 14.04.2 Desktop from http://www.ubuntu.com/" \
+	name-description="COMMUNITY TEMPLATE: Ubuntu GNOME 14.04.2 Desktop from http://www.ubuntu.com/" \
 	memory-static-max=1073741824 \
 	memory-dynamic-max=1073741824 \
 	memory-dynamic-min=1073741824 \
