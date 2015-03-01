@@ -1,13 +1,13 @@
 
-##[ Ubuntu 15.04 (Vivid Vervet) ]##############################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+##[ Ubuntu Vivid Vervet 15.04 (EXPERIMENTAL) ]#################################
+# 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Ubuntu 15.04 (Vivid Vervet)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Ubuntu Vivid Vervet 15.04 (EXPERIMENTAL)")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: Ubuntu 15.04 (Vivid Vervet) from http://www.ubuntu.com/" \
+	name-description="COMMUNITY TEMPLATE: Ubuntu Vivid Vervet 15.04 (EXPERIMENTAL) from http://www.ubuntu.com/" \
 	memory-static-max=1073741824 \
 	memory-dynamic-max=1073741824 \
 	memory-dynamic-min=1073741824 \
