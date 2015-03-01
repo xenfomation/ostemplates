@@ -1,23 +1,12 @@
-﻿
-##[ Kali Linux 1.1.0 ]##########################################################
-#
-# REV 2.0
-# 10 FEB 2015, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Tools install without manual intervention
-#
-################################################################################
+
+##[ ClearOS Community 6 ]##################################################
+# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Kali Linux 1.1.0")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="ClearOS 6.5 (Community)")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Kali Linux 1.1.0: 32 or 64-bit.  The installer can be downloaded from http://www.kali.org/" \
+    name-description="COMMUNITY TEMPLATE for ClearOS Community 6.  The install media can be downloaded from http://www.clearfoundation.com/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
@@ -25,7 +14,7 @@ xe template-param-set uuid=$dstUUID \
     other-config:default_template=true \
     other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:install-arch=x86_64 \
-	other-config:install-distro=debianlike \
+	other-config:install-distro=rhlike \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \
 	platform:acpi=1 \

@@ -1,20 +1,12 @@
 ﻿
 ##[ Windows 10 Desktop ]########################################################
-#
-# 15 SEP 2014, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Tools install without manual intervention
-#
+# 15 SEP 2014, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Windows 10 Desktop")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Windows 10 (Technical Preview)")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Windows 10 Desktop (Technical Preview): 32 or 64-bit.  XenTools MUST be installed for full menu effects offered by Metro" \
+    name-description="COMMUNITY TEMPLATE for Windows 10 Desktop (Technical Preview)" \
     memory-static-max=2147483648 \
     memory-dynamic-max=2147483648 \
     memory-dynamic-min=2147483648 \
@@ -35,5 +27,4 @@ xe template-param-set uuid=$dstUUID \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn"
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
-
 xe template-list uuid=$dstUUID

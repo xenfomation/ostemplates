@@ -1,23 +1,13 @@
 ﻿
-##[ Korora 21 (Darla) ]#########################################################
-#
-# REV 2.0
-# 07 FEB 2015, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Tools install without manual intervention
-#
-################################################################################
+##[ Fedora 21 Workstation ]####################################################
+# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+###############################################################################
+
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Korora 21 (Darla)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Fedora 21 Workstation")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Korora 21 (Darla): 32 or 64-bit.  The installer can be downloaded from https://kororaproject.org/download" \
+    name-description="COMMUNITY TEMPLATE for Fedora 21 Workstation: 32 or 64-bit.  The installer can be downloaded from http://download.fedoraproject.org/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \

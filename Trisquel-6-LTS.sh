@@ -1,23 +1,12 @@
 
-##[ Trisquel 6 LTS Desktop ]####################################################
-#
-# REV 2.0
-# 20 JAN 2015, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: N/A
-#
-################################################################################
+##[ Trisquel GNU/Linux 6.0 ]###################################################
+# 2014-215, JK Benedict | @xenfomation | thexenfomation@gmail.com
+###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Trisquel 6 LTS Desktop")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Trisquel 6 LTS Desktop: 32 or 64-bit.  The LiveCD/Install Media can be downloaded from http://trisquel.info/" \
+    name-description="COMMUNITY TEMPLATE for Trisquel GNU/Linux 6.0.  The install can be downloaded from http://trisquel.info/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \

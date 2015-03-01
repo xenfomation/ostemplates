@@ -1,10 +1,12 @@
-﻿
-##[ Tanglu GNU/Linux 2 (Bartholomea Annulata) ]#################################
+
+##[ AV Linux 6.0.4 ]###########################################################
+# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Tanglu GNU/Linux 2 (Bartholomea Annulata)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="AV Linux 6.0.4")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Tanglu GNU/Linux 2 (Bartholomea Annulata).  The installer can be downloaded from http://www.tanglu.org/" \
+    name-description="COMMUNITY TEMPLATE for AV Linux 6.0.4.  The install media can be downloaded from http://www.bandshed.net/AVLinux.html" \
     memory-static-max=536870912 \
     memory-dynamic-max=536870912 \
     memory-dynamic-min=536870912 \
@@ -13,7 +15,7 @@ xe template-param-set uuid=$dstUUID \
     other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:install-arch=x86_64 \
 	other-config:install-distro=debianlike \
-	other-config:disks='<provision><disk device="0" size="6442450944" sr="" bootable="true" type="system"/></provision>' \
+	other-config:disks='<provision><disk device="0" size="5368709120" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \
 	platform:acpi=1 \
 	platform:pae=true \

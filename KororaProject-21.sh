@@ -1,22 +1,12 @@
 ﻿
-##[ Fedora 21 Workstation ]#####################################################
-#
-# REV 2.0
-# 18 JUN 2014, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-#
-################################################################################
+##[ Korora Project 21 ]################################################################
+# 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Fedora 21 Workstation")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Korora Project 20")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Fedora 21 Workstation: 32 or 64-bit.  The installer can be downloaded from http://download.fedoraproject.org/" \
+    name-description="COMMUNITY TEMPLATE: Korora Project 21 from https://kororaproject.org/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
@@ -36,7 +26,5 @@ xe template-param-set uuid=$dstUUID \
 	platform:viridian=false \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn"
-
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
-
 xe template-list uuid=$dstUUID
