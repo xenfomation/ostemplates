@@ -1,9 +1,33 @@
+#!/bin/bash
+
+# Crappy-non compiled hacktastic code to emulate my end goal
+# For Mr. Mondo ONLY!  EULA = If it breaks something, I will fix it!
 
 ##[ Debian Jessie 8.0 RC1 (EXPERIMENTAL) ]#####################################
 # 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# For MR. MONDO'S TESTING ONLY
 ###############################################################################
 
-srcUUID=$(xe template-list name-label="Other install media" --minimal)
+# MAKE SURE PRODUCT VERSION IS... NOT < XENSERVER 6.1.0
+xsVersion=$(cat /etc/xensource-inventory | grep "PRODUCT_VERSION=" | sed "s/'//g" | sed "s/.*=//g")
+
+if [ "$xsVersion" == "6.5.0" ] || [ "$xsVersion" == "6.2.0" ] || [ "$xsVersion" == "6.1.0" ]; then
+	# All is good - check for "Other install media" Template
+	srcUUID=$(xe template-list name-label="Other install me" --minimal | grep "[0-9]")
+	if [ -z "$srcUUID" ]; then
+		echo ""
+		echo "FAIL: \"Other install media\" Default Template is not installed"
+		echo "		and it is required to proceed.  Exiting."
+		echo ""
+		exit
+	fi
+else
+	echo ""
+	echo "FAIL: This template has only been test on XenServer 6.1, 6.2, and 6.5"
+	echo ""
+	exit
+fi	
+
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Debian Jessie 8.0 RC1 (EXPERIMENTAL)")
 xe template-param-set uuid=$dstUUID \
     name-description="COMMUNITY TEMPLATE: Debian Jessie 8.0 RC1 (EXPERIMENTAL) from http://www.debian.org/" \
@@ -29,3 +53,4 @@ xe template-param-set uuid=$dstUUID \
 	HVM-boot-params:order="cdn"
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
 xe template-list uuid=$dstUUID
+
