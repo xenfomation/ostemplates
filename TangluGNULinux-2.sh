@@ -1,5 +1,5 @@
 ﻿
-##[ Tanglu GNU/Linux 2 (Bartholomea Annulata) ]#################################
+##[ Tanglu GNU/Linux 2 (Bartholomea Annulata) ]################################
 # 2014-215, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ###############################################################################
 
@@ -13,7 +13,7 @@ xe template-param-set uuid=$dstUUID \
 	other-config:linux_template=true \
     other-config:default_template=true \
     other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:install-arch=x86_64 \
+	other-config:install-arch=amd64 \
 	other-config:install-distro=debianlike \
 	other-config:disks='<provision><disk device="0" size="6442450944" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \

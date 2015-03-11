@@ -7,7 +7,7 @@ srcUUID=$(xe template-list name-label="Other install media" --minimal)
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="SolydXK")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: SolydXK from http://solydxk.com/" \
+	name-description="COMMUNITY TEMPLATE for SolydXK from http://solydxk.com/" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \

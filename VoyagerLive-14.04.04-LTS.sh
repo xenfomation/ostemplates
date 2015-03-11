@@ -1,22 +1,25 @@
 
-##[ openSUSE 13.2 ]############################################################
+##[ Voyager Live 14.04.04 LTS ]#################################################
 # 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+################################################################################
+#
+# Tools install without manual intervention
+#
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="openSUSE 13.2")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Voyager Live 14.04.04 LTS")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: openSUSE 13.2 from https://www.opensuse.org/en/" \
-	memory-static-max=2147483648 \
-	memory-dynamic-max=2147483648 \
-	memory-dynamic-min=2147483648 \
+	name-description="COMMUNITY TEMPLATE: Voyager Live 14.04.04 LTS from http://voyagerlive.org/" \
+	memory-static-max=1073741824 \
+	memory-dynamic-max=1073741824 \
+	memory-dynamic-min=1073741824 \
 	other-config:linux_template=true \
 	other-config:default_template=true \
-	other-config:install-arch=x86_64 \
+	other-config:install-arch=amd64 \
 	other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
-	other-config:install-distro=sleslike \
+	other-config:disks='<provision><disk device="0" size="8589934592" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \
 	platform:acpi=1 \
 	platform:pae=true \

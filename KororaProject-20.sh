@@ -1,12 +1,12 @@
 ﻿
-##[ Korora Project 20 ]################################################################
+##[ Korora Project 20 (Peach) ]################################################
 # 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Korora Project 20")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Korora Project 20 (Peach)")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE: Korora Project 20 from https://kororaproject.org/" \
+    name-description="COMMUNITY TEMPLATE for Korora Project 20 (Peach) from https://kororaproject.org/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
