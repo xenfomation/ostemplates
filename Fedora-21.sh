@@ -1,23 +1,12 @@
 ﻿
 ##[ Fedora 21 Server ]##########################################################
-#
-# REV 2.0
-# 18 JUN 2014, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Tools install without manual intervention
-#
+# 18 JUN 2014, JK Benedict | @xenfomation 
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Fedora 21 Server")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Fedora 21")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Fedora 21 Server: 32 or 64-bit.  The installer can be downloaded from http://download.fedoraproject.org/" \
+    name-description="COMMUNITY TEMPLATE for Fedora 21 (Server, Desktop, or Cloud) from http://download.fedoraproject.org/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
@@ -37,7 +26,5 @@ xe template-param-set uuid=$dstUUID \
 	platform:viridian=false \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn"
-
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
-
 xe template-list uuid=$dstUUID
