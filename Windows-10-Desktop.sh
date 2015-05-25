@@ -1,6 +1,6 @@
 ﻿
 ##[ Windows 10 Desktop ]########################################################
-# 15 SEP 2014, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 15-SEP-2014, JK Benedict | http://www.xenserver.org | @xenfomation
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)

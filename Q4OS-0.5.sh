@@ -1,17 +1,6 @@
 
 ##[ Q4OS 0.5.x ]################################################################
-#
-# REV 2.0
-# 21 JAN 2015, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Tools install without manual intervention
-#
+# 21 JAN 2015, JK Benedict | xenserver.org | @xenfomation
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)

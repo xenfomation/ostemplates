@@ -1,6 +1,6 @@
 ﻿
 ##[ Korora Project 20 (Peach) ]################################################
-# 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
@@ -13,7 +13,6 @@ xe template-param-set uuid=$dstUUID \
 	other-config:linux_template=true \
     other-config:default_template=true \
     other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:install-arch=x86_64 \
 	other-config:install-distro=rhlike \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \

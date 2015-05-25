@@ -1,13 +1,13 @@
 
 ##[ HandyLinux 1.8 ]###########################################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | @xenfomation | xenfomation@outlook.com
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="HandyLinux 1.8")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: HandyLinux 1.8 from http://handylinux.org/" \
+	name-description="COMMUNITY TEMPLATE for HandyLinux 1.8 from http://handylinux.org/" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \
@@ -18,7 +18,7 @@ xe template-param-set uuid=$dstUUID \
 	other-config:disks='<provision><disk device="0" size="1073741824" sr="" bootable="true" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
-	platform:videoram=16 \
+	platform:videoram=8 \
 	platform:usb_tablet=true \
 	platform:device_id=0001 \
 	platform:acpi=1 \

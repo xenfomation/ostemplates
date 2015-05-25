@@ -1,6 +1,6 @@
 
 ##[ Pardus Linux 2.0 ]#########################################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)

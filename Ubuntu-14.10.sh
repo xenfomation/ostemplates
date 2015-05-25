@@ -1,19 +1,18 @@
 
 ##[ Ubuntu Utopic Unicorn 14.10 ]##############################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Ubuntu Utopic Unicorn 14.10")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="JESSE: Ubuntu Utopic Unicorn 14.10")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE: Ubuntu Utopic Unicorn 14.10 from http://www.ubuntu.com/" \
+	name-description="COMUNITY TEMPLATE for Ubuntu Utopic Unicorn 14.10 from http://www.ubuntu.com/" \
 	memory-static-max=1073741824 \
 	memory-dynamic-max=1073741824 \
 	memory-dynamic-min=1073741824 \
 	other-config:linux_template=true \
 	other-config:default_template=true \
-	other-config:install-arch=amd64 \
 	other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \

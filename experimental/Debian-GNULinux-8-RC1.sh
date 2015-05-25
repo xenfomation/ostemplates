@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Crappy-non compiled hacktastic code to emulate my end goal
-# For Mr. Mondo ONLY!  EULA = If it breaks something, I will fix it!
-
 ##[ Debian Jessie 8.0 RC1 (EXPERIMENTAL) ]#####################################
-# 2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
-# For MR. MONDO'S TESTING ONLY
+# 2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 # MAKE SURE PRODUCT VERSION IS... NOT < XENSERVER 6.1.0
@@ -28,9 +24,10 @@ else
 	exit
 fi	
 
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Debian Jessie 8.0 RC1 (EXPERIMENTAL)")
+srcUUID=$(xe template-list name-label="Other install media" --minimal)
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Debian 8.0 (Jessie)")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE: Debian Jessie 8.0 RC1 (EXPERIMENTAL) from http://www.debian.org/" \
+    name-description="COMMUNITY TEMPLATE for Debian 8.0 (Jessie) from http://www.debian.org/" \
 	memory-static-max=268435456 \
 	memory-static-min=134217728 \
     memory-dynamic-max=268435456 \
@@ -53,4 +50,3 @@ xe template-param-set uuid=$dstUUID \
 	HVM-boot-params:order="cdn"
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
 xe template-list uuid=$dstUUID
-

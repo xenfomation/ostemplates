@@ -1,22 +1,21 @@
 ﻿
 ##[ Windows 10 Server ]#########################################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Windows 10")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Windows 10 Server")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE: Windows 10 (Technical Preview).  XenTools MUST be installed for full menu effects offered by Metro" \
+    name-description="COMMUNITY TEMPLATE for Windows 10 (Technical Preview).  XenTools MUST be installed for full menu effects offered by Metro" \
     memory-static-max=2147483648 \
     memory-dynamic-max=2147483648 \
     memory-dynamic-min=2147483648 \
     other-config:default_template=true \
     other-config:install-methods=cdrom \
-	other-config:install-arch=x86_64 \
 	other-config:disks='<provision><disk device="0" size="34359738368" sr="" bootable="false" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
-	platform:videoram=16 \
+	platform:videoram=8 \
 	platform:device_id=0002 \
 	platform:acpi=1 \
 	platform:apic=true \

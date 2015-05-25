@@ -1,24 +1,14 @@
 
-##[ Linux Mint LMDE MATE (Debian Edition) ]#####################################
-#
-# 01 DEC 2014, JK Benedict
-# xenfomation.servercide.com | @xenfomation
-# 
-# XENSERVER AND TEMPLATE INFORMATION:
-#
-# INTENDED FOR	: XenServer 6.5
-# TESTED ON		: XenServer 6.2, 6.5
-# ARCHITECTURE	: 32/64 BITS
-# XENTOOLS		: Must be manually installed (dpkg -i xe*amd64.deb or dpkg -i xe*i386.deb)
-#
+##[ Linux Mint LMDE (Debian) ###################################################
+# 01 DEC 2014, JK Benedict | @xenfomation | xenfomation@outlook.com
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint LMDE MATE (Debian Edition)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint LMDE (Debian)")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Linux Mint LMDE MATE (Debian Edition): rolling-update release (32 or 64-bit).  MINIMUM Guest VM requirements are 512MB of RAM and 10GB of available disk space.  OPTIMUM Guest VM requirements are 1024MB of RAM and 20GB of available disk space.  The installer media can be downloaded from http://www.linuxmint.com/release.php?id=14" \
+	name-description="COMMUNITY TEMPLATE for Linux Mint LMDE (Debian) from http://www.linuxmint.com/download_lmde.php" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \
@@ -30,14 +20,14 @@ xe template-param-set uuid=$dstUUID \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
-	platform:videoram=16 \
+	platform:videoram=8 \
 	platform:device_id=0001 \
 	platform:acpi=1 \
 	platform:apic=true \
 	platform:pae=true \
 	platform:viridian=false \
 	HVM-boot-policy="BIOS order" \
-	HVM-boot-params:order="cdn" 
+	HVM-boot-params:order="cdn"
 
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
 

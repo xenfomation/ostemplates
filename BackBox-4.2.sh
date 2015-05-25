@@ -1,13 +1,13 @@
 
-##[ Ubuntu GNOME 14.04.2 Desktop ]#############################################
-# 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
-###############################################################################
+##[ BackBox Linux 4.2 ]#########################################################
+# 06-MAY-2015, JK Benedict | @xenfomation | xenfomation@outlook.com
+################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="UUbuntu GNOME 14.04.2 Desktop")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="BackBox Linux 4.2")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Ubuntu GNOME 14.04.2 Desktop from http://www.ubuntu.com/" \
+	name-description="COMMUNITY TEMPLATE for BackBox Linux 4.2 from http://www.backbox.org/" \
 	memory-static-max=1073741824 \
 	memory-dynamic-max=1073741824 \
 	memory-dynamic-min=1073741824 \

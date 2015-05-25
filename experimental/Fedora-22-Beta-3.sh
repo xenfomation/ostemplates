@@ -1,28 +1,28 @@
-
-##[ Scientific Linux 7 ]#######################################################
-# 2013-2015, JK Benedict | http://www.xenserver.org | @xenfomation
-###############################################################################
+﻿
+##[ Fedora 22 Beta 3 ]##########################################################
+# 21-APR-2015, JK Benedict | http://www.xenserver.org | @xenfomation
+################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Scientific Linux 7")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Fedora 22 (Beta 3)")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE: Scientific Linux 7.x from http://ftp1.scientificlinux.org/linux/scientific/7x/" \
+    name-description="COMMUNITY TEMPLATE for Fedora 22 (Beta 3) from http://dl.fedoraproject.org/pub/fedora/linux/releases/test/22_Beta/Live/x86_64/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
 	other-config:linux_template=true \
-	other-config:default_template=true \
+    other-config:default_template=true \
+    other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:install-distro=rhlike \
-	other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
-	platform:nx="true" \
+	platform:apic=true \
+	platform:acpi=1 \
+	platform:pae=true \
 	platform:vga=std \
 	platform:videoram=8 \
+	platform:nx=true \
 	platform:device_id=0001 \
-	platform:acpi=1 \
-	platform:apic=true \
-	platform:pae=true \
-	platform:viridian=true \
+	platform:viridian=false \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn"
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name

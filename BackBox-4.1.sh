@@ -1,6 +1,6 @@
 
 ##[ BackBox Linux 4.1 ]#########################################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | @xenfomation | xenfomation@outlook.com
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
@@ -13,7 +13,6 @@ xe template-param-set uuid=$dstUUID \
 	memory-dynamic-min=1073741824 \
 	other-config:linux_template=true \
 	other-config:install-distro=debianlike \
-	other-config:install-arch=amd64 \
 	other-config:default_template=true \
 	other-config:install-methods=cdrom,http,ftp,nfs \
 	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \

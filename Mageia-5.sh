@@ -1,19 +1,18 @@
 
 ##[ Mageia 5 ]#################################################################
-# 2014-2015, JK Benedict | @xenfomation | thexenfomation@gmail.com
+# 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
 dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Mageia 5")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE: Mageia 5 from http://www.mageia.org/" \
+    name-description="COMMUNITY TEMPLATE for Mageia 5 from http://www.mageia.org/" \
     memory-static-max=536870912 \
     memory-dynamic-max=536870912 \
     memory-dynamic-min=536870912 \
 	other-config:linux_template=true \
     other-config:default_template=true \
     other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:install-arch=x86_64 \
 	other-config:install-distro=rhlike \
 	other-config:disks='<provision><disk device="0" size="5368709120" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \
