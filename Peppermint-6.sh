@@ -1,14 +1,13 @@
 
-##[ Peppermint 5 ]##############################################################
-# 28 DEC 2014, JK Benedict | @xenfomation | xenfomation@outlook.com
+##[ Peppermint 6 ]##############################################################
+# 05-JUN-2015, JK Benedict | @xenfomation | xenfomation@outlook.com
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Peppermint 5")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Peppermint 6")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Peppermint 5 from http://peppermintos.com/" \
+	name-description="COMMUNITY TEMPLATE for Peppermint 6 from http://peppermintos.com/" \
 	memory-static-max=1073741824 \
 	memory-dynamic-max=1073741824 \
 	memory-dynamic-min=1073741824 \
@@ -20,7 +19,7 @@ xe template-param-set uuid=$dstUUID \
 	other-config:disks='<provision><disk device="0" size="6442450944" sr="" bootable="true" type="system"/></provision>' \
 	platform:nx=true \
 	platform:vga=std \
-	platform:videoram=16 \
+	platform:videoram=8 \
 	platform:device_id=0001 \
 	platform:acpi=1 \
 	platform:apic=true \
@@ -28,7 +27,5 @@ xe template-param-set uuid=$dstUUID \
 	platform:viridian=false \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn" 
-
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
-
 xe template-list uuid=$dstUUID

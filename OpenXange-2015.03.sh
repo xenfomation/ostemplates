@@ -1,21 +1,20 @@
 ﻿
-##[ Open Xange 2015.04 ]########################################################
+##[ Open Xange 2015.03 ]########################################################
 # 2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Open Xange 2015.04")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Open Xange 2015.03")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Open Xange 2015.04 from http://sourceforge.net/projects/xange/" \
+    name-description="COMMUNITY TEMPLATE for Open Xange 2015.03 from http://sourceforge.net/projects/xange/" \
     memory-static-max=1073741824 \
     memory-dynamic-max=1073741824 \
     memory-dynamic-min=1073741824 \
 	other-config:linux_template=true \
     other-config:default_template=true \
     other-config:install-methods=cdrom,http,ftp,nfs \
-	other-config:install-arch=x86_64 \
 	other-config:install-distro=rhlike \
-	other-config:disks='<provision><disk device="0" size="10737418240" sr="" bootable="true" type="system"/></provision>' \
+	other-config:disks='<provision><disk device="0" size="8589934592" sr="" bootable="true" type="system"/></provision>' \
 	platform:apic=true \
 	platform:acpi=1 \
 	platform:pae=true \

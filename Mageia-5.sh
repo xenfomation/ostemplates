@@ -1,12 +1,12 @@
 
-##[ Mageia 5 ]#################################################################
+##[ Mageia 5. ]################################################################
 # 2014-2015, JK Benedict | http://www.xenserver.org | @xenfomation
 ###############################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Mageia 5")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Mageia 5.0")
 xe template-param-set uuid=$dstUUID \
-    name-description="COMMUNITY TEMPLATE for Mageia 5 from http://www.mageia.org/" \
+    name-description="COMMUNITY TEMPLATE for Mageia 5.0 from http://www.mageia.org/" \
     memory-static-max=536870912 \
     memory-dynamic-max=536870912 \
     memory-dynamic-min=536870912 \
@@ -19,7 +19,7 @@ xe template-param-set uuid=$dstUUID \
 	platform:acpi=1 \
 	platform:pae=true \
 	platform:vga=std \
-	platform:videoram=16 \
+	platform:videoram=8 \
 	platform:nx=true \
 	platform:device_id=0001 \
 	platform:viridian=false \
