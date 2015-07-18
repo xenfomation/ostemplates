@@ -34,16 +34,15 @@ xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_te
 xe template-list uuid=$dstUUID
 
 echo ""
-echo ""
 echo "CREATING TEMPLATE UNINSTALL SCRIPT AT:"
-echo "     /root/bodhilinux-3.0-uninstall.sh"
+echo "     /root/uninstall-BodhiLinux-3.0.sh"
 echo ""
 
-touch /root/bodhilinux-3.0-uninstall.sh
-chmod 755 /root/bodhilinux-3.0-uninstall.sh
-echo "#!/bin/bash" > /root/bodhilinux-3.0-uninstall.sh
-echo "" >> /root/bodhilinux-3.0-uninstall.sh
-echo "xe template-param-set uuid=$dstUUID other-config:default_template=false" >> /root/bodhilinux-3.0-uninstall.sh
-echo "xe template-uninstall template-uuid=$dstUUID" >> /root/bodhilinux-3.0-uninstall.sh
-echo "rm /root/bodhilinux-3.0-uninstall.sh" >> /root/bodhilinux-3.0-uninstall.sh
+touch /root/uninstall-BodhiLinux-3.0.sh
+chmod 755 /root/uninstall-BodhiLinux-3.0.sh
+echo "#!/bin/bash" > /root/uninstall-BodhiLinux-3.0.sh
+echo "" >> /root/uninstall-BodhiLinux-3.0.sh
+echo "xe template-param-set uuid=$dstUUID other-config:default_template=false" >> /root/uninstall-BodhiLinux-3.0.sh
+echo "xe template-uninstall template-uuid=$dstUUID" >> /root/uninstall-BodhiLinux-3.0.sh
+echo "rm /root/uninstall-BodhiLinux-3.0.sh" >> /root/uninstall-BodhiLinux-3.0.sh
 
