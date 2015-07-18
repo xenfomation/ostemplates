@@ -1,4 +1,7 @@
-﻿
+#!/bin/bash
+
+echo ""
+
 ##[ Fedora 22 Server ]##########################################################
 # 26-MAY-2014, JK Benedict | http://www.xenserver.org | @xenfomation
 ################################################################################
@@ -27,3 +30,18 @@ xe template-param-set uuid=$dstUUID \
 	HVM-boot-params:order="cdn"
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
 xe template-list uuid=$dstUUID
+
+echo ""
+echo ""
+echo "CREATING TEMPLATE UNINSTALL SCRIPT AT:"
+echo "     /root/uninstallFedora22.sh"
+echo ""
+
+touch /root/uninstallFedora22.sh
+chmod 755 /root/uninstallFedora22.sh
+echo "#!/bin/bash" > /root/uninstallFedora22.sh
+echo "" >> /root/uninstallFedora22.sh
+echo "xe template-param-set uuid=$dstUUID other-config:default_template=false" >> /root/uninstallFedora22.sh
+echo "xe template-uninstall template-uuid=$dstUUID" >> /root/uninstallFedora22.sh
+echo "rm /root/uninstallFedora22.sh" >> /root/uninstallFedora22.sh
+

@@ -1,13 +1,15 @@
+#!/bin/bash
 
-##[ Linux Mint 17.1 (MATE Spin) ]###############################################
-# 30 NOV 2014, JK Benedict | @xenfomation | xenfomation@outlook.com
+echo ""
+##[ Linux Mint 17.2 (Rafaela) ]#################################################
+# 17-JUN-2015, JK Benedict | @xenfomation | xenfomation@outlook.com
 ################################################################################
 
 srcUUID=$(xe template-list name-label="Other install media" --minimal)
-dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint 17.1 (MATE Spin)")
+dstUUID=$(xe vm-clone uuid=$srcUUID new-name-label="Linux Mint 17.2 (Rafaela)")
 
 xe template-param-set uuid=$dstUUID \
-	name-description="COMMUNITY TEMPLATE for Linux Mint 17.1 (MATE Spin) from http://blog.linuxmint.com/?p=2713" \
+	name-description="COMMUNITY TEMPLATE for Linux Mint 17.2 (Rafaela) from http://blog.linuxmint.com/?p=2856" \
 	memory-static-max=536870912 \
 	memory-dynamic-max=536870912 \
 	memory-dynamic-min=536870912 \
@@ -27,4 +29,17 @@ xe template-param-set uuid=$dstUUID \
 	HVM-boot-policy="BIOS order" \
 	HVM-boot-params:order="cdn" 
 xe template-param-remove uuid=$dstUUID param-name=other-config param-key=base_template_name
+echo ""
 xe template-list uuid=$dstUUID
+
+echo ""
+echo "CREATING TEMPLATE UNINSTALL SCRIPT AT:"
+echo "     /root/LinuxMint-17.2.sh"
+echo ""
+
+touch /root/remove-LinuxMint-17.2.sh
+chmod 755 /root/remove-LinuxMint-17.2.sh
+echo "#!/bin/bash" > /root/remove-LinuxMint-17.2.sh
+echo "" >> /root/remove-LinuxMint-17.2.sh
+echo "xe template-param-set uuid=$dstUUID other-config:default_template=false" >> /root/remove-LinuxMint-17.2.sh
+echo "xe template-uninstall template-uuid=$dstUUID" >> /root/remove-LinuxMint-17.2.sh
